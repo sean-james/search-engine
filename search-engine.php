@@ -13,7 +13,8 @@ if(strlen($search)<=1)
 echo "Search term too short";
 else{
 echo "You searched for <b>$search</b> <hr size='1'></br>";
-$link = mysqli_connect("mysql host", "username", "password", "db name");
+$link = mysqli_connect("mysql host", "username", "password", "db name") 
+    or die ("couldn't connect to server" . mysqli_error()); 
  
 $search_exploded = explode (" ", $search);
  
@@ -27,7 +28,7 @@ $construct .="AND keywords LIKE '%$search_each%'";
  
 }
  
-$query ="SELECT * FROM SEARCH_ENGINE WHERE ".$construct;
+$query ="SELECT * FROM YOUR TABLE NAME WHERE ".$construct;
 $run = mysqli_query( $link, $query ); 
     
  
